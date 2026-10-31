@@ -525,7 +525,7 @@
           </div>
         </div>
         <div class="hero-photo">
-          <img src="assets/hero-product.jpg" alt="Four VOLLEY. hydration stick packs beside a glass of pink iced water and fresh fruit" fetchpriority="high">
+          <img src="hero-product.jpg" alt="Four VOLLEY. hydration stick packs beside a glass of pink iced water and fresh fruit" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -544,7 +544,7 @@
 
         <div class="flavour-grid">
           <button class="flavour-card rose" data-flavour="0">
-            <img src="assets/strawberry.jpg" alt="Rose VOLLEY. strawberry açaí lemonade stick with fruit" loading="lazy">
+            <img src="strawberry.jpg" alt="Rose VOLLEY. strawberry açaí lemonade stick with fruit" loading="lazy">
             <div class="flavour-info">
               <h3>Strawberry Açaí Lemonade</h3>
               <p>Bright, juicy and refreshingly tart. ↗</p>
@@ -552,7 +552,7 @@
           </button>
 
           <button class="flavour-card gold" data-flavour="1">
-            <img src="assets/lychee.jpg" alt="Soft gold VOLLEY. lychee peach stick with fruit" loading="lazy">
+            <img src="lychee.jpg" alt="Soft gold VOLLEY. lychee peach stick with fruit" loading="lazy">
             <div class="flavour-info">
               <h3>Lychee Peach</h3>
               <p>Soft, sunny and a little tropical. ↗</p>
@@ -560,7 +560,7 @@
           </button>
 
           <button class="flavour-card aqua" data-flavour="2">
-            <img src="assets/citrus.jpg" alt="Aqua VOLLEY. citrus lemon yuzu lime stick with fruit" loading="lazy">
+            <img src="citrus.jpg" alt="Aqua VOLLEY. citrus lemon yuzu lime stick with fruit" loading="lazy">
             <div class="flavour-info">
               <h3>Citrus Lemon–Yuzu–Lime</h3>
               <p>Crisp citrus with a refreshing finish. ↗</p>
@@ -568,7 +568,7 @@
           </button>
 
           <button class="flavour-card lilac" data-flavour="3">
-            <img src="assets/mango.jpg" alt="Lilac VOLLEY. mango passionfruit stick with fruit" loading="lazy">
+            <img src="mango.jpg" alt="Lilac VOLLEY. mango passionfruit stick with fruit" loading="lazy">
             <div class="flavour-info">
               <h3>Mango Passionfruit</h3>
               <p>Vibrant, fruity and tropical. ↗</p>
@@ -620,13 +620,13 @@
     <section class="section story" id="about">
       <div class="wrap story-grid">
         <div class="story-image">
-          <img src="assets/everyday.jpg" alt="VOLLEY. drink enjoyed during an everyday break" loading="lazy">
+          <img src="everyday.jpg" alt="VOLLEY. drink enjoyed during an everyday break" loading="lazy">
         </div>
         <div>
           <div class="eyebrow">Our story</div>
           <h2 class="display">Life is<br>the sport.</h2>
           <p>We believe taking care of yourself should fit into your life, not get in the way of it.</p>
-          <p>VOLLEY. is being created for the in-between moments: busy mornings, long afternoons, last-minute plans, time with friends and whatever comes next. Because hydration isn't just for the finish line.</p>
+          <p>VOLLEY. is being created for the in-between moments: busy mornings, long afternoons, last-minute plans, time with friends and whatever comes next. Because hydration isn't just for the big workouts — it's for all the ways you move through a day.</p>
           <a class="btn" href="#waitlist">Come along for the ride ↗</a>
         </div>
       </div>
@@ -643,9 +643,9 @@
         </div>
 
         <div class="life-grid">
-          <img src="assets/friends.jpg" alt="Friends chatting after sport" loading="lazy">
-          <img src="assets/flatlay.jpg" alt="VOLLEY. stick packs arranged together" loading="lazy">
-          <img src="assets/pool.jpg" alt="Refreshing VOLLEY. drink by the pool" loading="lazy">
+          <img src="friends.jpg" alt="Friends chatting after sport" loading="lazy">
+          <img src="flatlay.jpg" alt="VOLLEY. stick packs arranged together" loading="lazy">
+          <img src="pool.jpg" alt="Refreshing VOLLEY. drink by the pool" loading="lazy">
         </div>
       </div>
     </section>
@@ -691,7 +691,7 @@
           <p class="note">Preview mode: email capture requires a mailing-list integration before launch.</p>
         </div>
 
-        <img src="assets/lineup.jpg" alt="VOLLEY. hydration stick packs in four colours" loading="lazy">
+        <img src="lineup.jpg" alt="VOLLEY. hydration stick packs in four colours" loading="lazy">
       </div>
     </section>
 
@@ -753,7 +753,7 @@
   <dialog class="dialog" id="flavourDialog">
     <button class="close" id="closeDialog" aria-label="Close flavour details">×</button>
     <div class="dialog-inner">
-      <img id="dialogImage" src="assets/strawberry.jpg" alt="">
+      <img id="dialogImage" src="strawberry.jpg" alt="">
       <div class="dialog-copy">
         <div class="eyebrow">The flavour lineup</div>
         <h3 id="dialogTitle"></h3>
@@ -794,7 +794,7 @@
         document.getElementById('dialogTitle').textContent = flavour[0];
         document.getElementById('dialogDescription').textContent = flavour[1] + ' This flavour is currently a product concept.';
         const image = document.getElementById('dialogImage');
-        image.src = 'assets/' + flavour[2];
+        image.src = flavour[2];
         image.alt = flavour[0] + ' concept packaging';
         dialog.showModal();
       });
