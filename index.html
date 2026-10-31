@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1A3045">
+  <meta name="description" content="VOLLEY. Daily hydration for real life. Made for what's next.">
+  <title>VOLLEY. — Made for What's Next</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1A3045;
+      --rose: #E96576;
+      --gold: #F6D995;
+      --aqua: #87C9C3;
+      --sand: #F5F0E9;
+      --lilac: #CBB9D9;
+      --white: #fffdfa;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--sand);
+      color: var(--navy);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    img { width: 100%; display: block; object-fit: cover; }
+
+    .wrap { width: min(1240px, calc(100% - 48px)); margin: auto; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .display {
+      font-family: "Barlow Condensed", Impact, sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: -.025em;
+      line-height: .87;
+      margin: 0;
+    }
+    .logo {
+      font-family: "Barlow Condensed", Impact, sans-serif;
+      font-size: 44px;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: -.055em;
+      line-height: 1;
+      display: inline-flex;
+      align-items: baseline;
+      transform: skew(-7deg);
+    }
+    .logo .ball {
+      display: inline-block;
+      background: var(--rose);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-left: 4px;
+      align-self: flex-end;
+      margin-bottom: 6px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(245,240,233,.96);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(26,48,69,.1);
+    }
+    .nav-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .nav-links a:not(.btn):hover { color: var(--rose); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--rose);
+      border: 2px solid var(--rose);
+      color: var(--white);
+      border-radius: 100px;
+      padding: 14px 25px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: transform .2s, background .2s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #d95065;
+    }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-outline:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      font-size: 26px;
+      color: var(--navy);
+    }
+
+    .hero { background: var(--aqua); overflow: hidden; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      min-height: 610px;
+    }
+    .hero-copy {
+      padding: 100px 6% 95px max(24px, calc((100vw - 1240px) / 2));
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .hero h1 {
+      font-size: clamp(76px, 8.8vw, 145px);
+      max-width: 760px;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 410px;
+      margin: 26px 0;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-photo {
+      position: relative;
+      min-height: 510px;
+    }
+    .hero-photo img {
+      height: 100%;
+      object-position: center center;
+    }
+    .hero-photo:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, var(--aqua) 0%, transparent 16%);
+    }
+
+    .marquee {
+      background: var(--navy);
+      color: white;
+      overflow: hidden;
+      padding: 17px 0;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .marquee span { color: var(--gold); padding: 0 32px; }
+
+    .section { padding: 105px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 35px;
+    }
+    .section-head h2 { font-size: clamp(58px, 6vw, 94px); }
+    .section-head p { max-width: 350px; line-height: 1.65; }
+
+    .flavours { background: var(--white); }
+    .flavour-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .flavour-card {
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--sand);
+      transition: transform .25s;
+      cursor: pointer;
+      border: 0;
+      text-align: left;
+      color: inherit;
+      padding: 0;
+    }
+    .flavour-card:hover { transform: translateY(-8px); }
+    .flavour-card img { height: 355px; }
+    .flavour-info { padding: 22px; }
+    .flavour-info h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 29px;
+      text-transform: uppercase;
+      line-height: 1;
+      margin: 0 0 9px;
+    }
+    .flavour-info p {
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .rose { background: #f8d8dc; }
+    .gold { background: #fff0cd; }
+    .aqua { background: #d8efeb; }
+    .lilac { background: #e9e0ef; }
+
+    .benefits { background: var(--sand); }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .benefit {
+      border-top: 2px solid var(--navy);
+      padding: 28px 12px 10px 0;
+    }
+    .benefit .symbol { font-size: 35px; margin-bottom: 25px; }
+    .benefit h3 {
+      font-family: "Barlow Condensed";
+      font-size: 29px;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+    .benefit p {
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 220px;
+    }
+    .note {
+      font-size: 12px;
+      opacity: .7;
+      margin-top: 25px;
+    }
+
+    .story { background: var(--navy); color: white; }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 7vw;
+    }
+    .story-image { height: 530px; border-radius: 10px; overflow: hidden; }
+    .story-image img { height: 100%; }
+    .story h2 { font-size: clamp(65px, 7vw, 115px); }
+    .story p {
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 480px;
+      color: #e5e9eb;
+    }
+    .story .btn { margin-top: 20px; }
+
+    .lifestyle { background: var(--white); }
+    .life-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    .life-grid img { height: 360px; border-radius: 8px; }
+
+    .how { background: var(--gold); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 50px;
+    }
+    .step { border-top: 2px solid var(--navy); padding-top: 18px; }
+    .step b {
+      font-family: "Barlow Condensed";
+      font-size: 70px;
+    }
+    .step h3 {
+      font-family: "Barlow Condensed";
+      font-size: 38px;
+      text-transform: uppercase;
+      margin: 5px 0;
+    }
+    .step p { max-width: 260px; line-height: 1.6; }
+
+    .waitlist {
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .wait-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+    .waitlist h2 { font-size: clamp(65px, 7vw, 112px); }
+    .waitlist p { line-height: 1.7; color: #e0e8ea; }
+    .waitlist img { height: 380px; border-radius: 12px; }
+
+    .signup {
+      display: flex;
+      gap: 8px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .signup input {
+      flex: 1;
+      min-width: 190px;
+      border: 2px solid transparent;
+      border-radius: 100px;
+      padding: 15px 20px;
+      background: white;
+      color: var(--navy);
+    }
+    .signup input:focus { outline: 2px solid var(--aqua); }
+    .feedback { font-size: 13px; min-height: 25px; }
+
+    .faq { background: var(--sand); }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 80px;
+    }
+    .faq h2 { font-size: 80px; }
+    .faq details {
+      border-bottom: 1px solid #b8c2c5;
+      padding: 22px 0;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .faq summary:after { content: "+"; font-size: 24px; }
+    .faq details[open] summary:after { content: "−"; }
+    .faq details p {
+      line-height: 1.7;
+      font-size: 14px;
+      max-width: 600px;
+    }
+
+    footer {
+      background: #102334;
+      color: white;
+      padding: 60px 0 35px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    footer .logo { font-size: 70px; }
+    footer p, footer a {
+      font-size: 13px;
+      color: #d0dbe0;
+    }
+    footer .logo .ball { width: 18px; height: 18px; }
+    footer nav {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .copyright {
+      border-top: 1px solid #425461;
+      margin-top: 50px;
+      padding-top: 20px;
+      font-size: 12px;
+      color: #b9c7ce;
+    }
+
+    .dialog {
+      border: 0;
+      border-radius: 14px;
+      max-width: 650px;
+      width: calc(100% - 30px);
+      padding: 0;
+      box-shadow: 0 20px 90px #0006;
+    }
+    .dialog::backdrop { background: #102334bb; }
+    .dialog-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .dialog img { height: 420px; }
+    .dialog-copy {
+      padding: 35px 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .dialog h3 {
+      font-family: "Barlow Condensed";
+      font-size: 42px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      border: 0;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      background: white;
+      font-size: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .story-grid, .wait-grid { grid-template-columns: 1fr; }
+      .hero-copy { padding: 80px 24px 45px; }
+      .hero-photo { height: 430px; min-height: 0; }
+      .hero-photo:after { display: none; }
+      .flavour-grid, .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+      .flavour-card img { height: 320px; }
+      .story-grid { gap: 35px; }
+      .story-image { height: 370px; }
+      .faq-grid { grid-template-columns: 1fr; gap: 15px; }
+      .faq h2 { font-size: 65px; }
+    }
+
+    @media (max-width: 650px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav-inner { min-height: 70px; }
+      .logo { font-size: 38px; }
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--sand);
+        padding: 24px;
+        flex-direction: column;
+        align-items: stretch;
+        box-shadow: 0 12px 20px #0002;
+      }
+      .nav-links.open { display: flex; }
+      .hero h1 { font-size: 78px; }
+      .hero-copy { padding: 65px 18px 40px; }
+      .hero-photo { height: 330px; }
+      .section { padding: 70px 0; }
+      .section-head { display: block; }
+      .section-head h2 { font-size: 65px; }
+      .flavour-grid { gap: 10px; }
+      .flavour-card img { height: 235px; }
+      .flavour-info { padding: 13px; }
+      .flavour-info h3 { font-size: 23px; }
+      .benefit-grid { gap: 10px; }
+      .life-grid { grid-template-columns: 1fr 1fr; }
+      .life-grid img { height: 230px; }
+      .life-grid img:last-child { grid-column: span 2; height: 240px; }
+      .steps { grid-template-columns: 1fr; gap: 12px; }
+      .step b { font-size: 50px; }
+      .waitlist img { height: 230px; }
+      .dialog-inner { grid-template-columns: 1fr; }
+      .dialog img { height: 240px; }
+      .dialog-copy { padding: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *:before, *:after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#home" aria-label="VOLLEY. home">VOLLEY<span class="ball" aria-hidden="true"></span></a>
+      <button class="menu-btn" id="menu" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="links">
+        <a href="#flavours">Flavours</a>
+        <a href="#about">Our Story</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#waitlist">Join the Waitlist ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Daily hydration · Real life</div>
+          <h1 class="display">Made for<br>what's next.</h1>
+          <p>Big days. Little moments. Everything in between. Meet hydration that moves with you.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#waitlist">Join the Waitlist ↗</a>
+            <a class="btn btn-outline" href="#flavours">Explore Flavours</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/hero-product.jpg" alt="Four VOLLEY. hydration stick packs beside a glass of pink iced water and fresh fruit" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee">Different days. Same energy. <span>●</span> Hydration for real life. <span>●</span> Keep it going.</div>
+
+    <section class="section flavours" id="flavours">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Meet the lineup</div>
+            <h2 class="display">Find your flavour.</h2>
+          </div>
+          <p>Four fresh takes on everyday hydration. Pick your mood. Keep your momentum.</p>
+        </div>
+
+        <div class="flavour-grid">
+          <button class="flavour-card rose" data-flavour="0">
+            <img src="assets/strawberry.jpg" alt="Rose VOLLEY. strawberry açaí lemonade stick with fruit" loading="lazy">
+            <div class="flavour-info">
+              <h3>Strawberry Açaí Lemonade</h3>
+              <p>Bright, juicy and refreshingly tart. ↗</p>
+            </div>
+          </button>
+
+          <button class="flavour-card gold" data-flavour="1">
+            <img src="assets/lychee.jpg" alt="Soft gold VOLLEY. lychee peach stick with fruit" loading="lazy">
+            <div class="flavour-info">
+              <h3>Lychee Peach</h3>
+              <p>Soft, sunny and a little tropical. ↗</p>
+            </div>
+          </button>
+
+          <button class="flavour-card aqua" data-flavour="2">
+            <img src="assets/citrus.jpg" alt="Aqua VOLLEY. citrus lemon yuzu lime stick with fruit" loading="lazy">
+            <div class="flavour-info">
+              <h3>Citrus Lemon–Yuzu–Lime</h3>
+              <p>Crisp citrus with a refreshing finish. ↗</p>
+            </div>
+          </button>
+
+          <button class="flavour-card lilac" data-flavour="3">
+            <img src="assets/mango.jpg" alt="Lilac VOLLEY. mango passionfruit stick with fruit" loading="lazy">
+            <div class="flavour-info">
+              <h3>Mango Passionfruit</h3>
+              <p>Vibrant, fruity and tropical. ↗</p>
+            </div>
+          </button>
+        </div>
+
+        <p class="note">Concept flavours and packaging shown for preview. Final formulations and labels are being developed.</p>
+      </div>
+    </section>
+
+    <section class="section benefits">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Simple by design</div>
+            <h2 class="display">Good stuff.<br>Nothing extra.</h2>
+          </div>
+          <p>Thoughtful hydration for all the ways your day unfolds.</p>
+        </div>
+
+        <div class="benefit-grid">
+          <div class="benefit">
+            <div class="symbol">◉</div>
+            <h3>Electrolytes</h3>
+            <p>Sodium, potassium and magnesium in our planned formula.</p>
+          </div>
+          <div class="benefit">
+            <div class="symbol">☀</div>
+            <h3>Vitamins</h3>
+            <p>Planned vitamins D and B12.</p>
+          </div>
+          <div class="benefit">
+            <div class="symbol">✳</div>
+            <h3>Low sugar</h3>
+            <p>Targeting less than 5 g of sugar per serving.</p>
+          </div>
+          <div class="benefit">
+            <div class="symbol">↗</div>
+            <h3>Low calorie</h3>
+            <p>Targeting 30 calories or fewer per serving.</p>
+          </div>
+        </div>
+
+        <p class="note">These are development targets, not final verified nutrition facts.</p>
+      </div>
+    </section>
+
+    <section class="section story" id="about">
+      <div class="wrap story-grid">
+        <div class="story-image">
+          <img src="assets/everyday.jpg" alt="VOLLEY. drink enjoyed during an everyday break" loading="lazy">
+        </div>
+        <div>
+          <div class="eyebrow">Our story</div>
+          <h2 class="display">Life is<br>the sport.</h2>
+          <p>We believe taking care of yourself should fit into your life, not get in the way of it.</p>
+          <p>VOLLEY. is being created for the in-between moments: busy mornings, long afternoons, last-minute plans, time with friends and whatever comes next. Because hydration isn't just for the finish line.</p>
+          <a class="btn" href="#waitlist">Come along for the ride ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lifestyle">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Wherever life takes you</div>
+            <h2 class="display">Different days.<br>Same energy.</h2>
+          </div>
+          <p>For the days you plan, the days you don't, and everything in between.</p>
+        </div>
+
+        <div class="life-grid">
+          <img src="assets/friends.jpg" alt="Friends chatting after sport" loading="lazy">
+          <img src="assets/flatlay.jpg" alt="VOLLEY. stick packs arranged together" loading="lazy">
+          <img src="assets/pool.jpg" alt="Refreshing VOLLEY. drink by the pool" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="how">
+      <div class="wrap">
+        <div class="eyebrow">Your new daily ritual</div>
+        <h2 class="display" style="font-size:clamp(60px,7vw,105px)">Hydration, made simple.</h2>
+
+        <div class="steps">
+          <div class="step">
+            <b>01.</b>
+            <h3>Tear.</h3>
+            <p>Grab a VOLLEY. stick pack and take it wherever you're headed.</p>
+          </div>
+          <div class="step">
+            <b>02.</b>
+            <h3>Mix.</h3>
+            <p>Add it to cold water and stir or shake.</p>
+          </div>
+          <div class="step">
+            <b>03.</b>
+            <h3>Go.</h3>
+            <p>Enjoy a refreshing drink, wherever the day goes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section waitlist" id="waitlist">
+      <div class="wrap wait-grid">
+        <div>
+          <div class="eyebrow">Something fresh is coming</div>
+          <h2 class="display">Be first<br>in line.</h2>
+          <p>We're getting ready to launch. Be the first to hear about flavours, product updates and what's coming next.</p>
+
+          <form class="signup" id="signup">
+            <input id="email" type="email" placeholder="Your email address" aria-label="Email address" required>
+            <button class="btn" type="submit">Join the Waitlist ↗</button>
+          </form>
+
+          <p class="feedback" id="feedback" role="status"></p>
+          <p class="note">Preview mode: email capture requires a mailing-list integration before launch.</p>
+        </div>
+
+        <img src="assets/lineup.jpg" alt="VOLLEY. hydration stick packs in four colours" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="wrap faq-grid">
+        <div>
+          <div class="eyebrow">A few good questions</div>
+          <h2 class="display">FAQ.</h2>
+        </div>
+
+        <div>
+          <details>
+            <summary>What is VOLLEY.?</summary>
+            <p>VOLLEY. is a developing daily hydration powder brand, designed to make hydration convenient and refreshing.</p>
+          </details>
+          <details>
+            <summary>Is VOLLEY. just for athletes?</summary>
+            <p>No. VOLLEY. is for everyday life — work, travel, recreation and everything in between.</p>
+          </details>
+          <details>
+            <summary>How will I use it?</summary>
+            <p>Our planned format is a convenient single-serving powder stick pack that mixes with water. Final directions will be confirmed on the product label.</p>
+          </details>
+          <details>
+            <summary>Which flavours are coming?</summary>
+            <p>We're exploring Strawberry Açaí Lemonade, Lychee Peach, Citrus Lemon–Yuzu–Lime and Mango Passionfruit.</p>
+          </details>
+          <details>
+            <summary>When does VOLLEY. launch?</summary>
+            <p>We're still working towards launch. Join the waitlist to hear about updates first.</p>
+          </details>
+          <details>
+            <summary>Where can I see ingredients and nutrition facts?</summary>
+            <p>We'll publish confirmed ingredients and nutritional information when the final formulation is ready.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="#home">VOLLEY<span class="ball" aria-hidden="true"></span></a>
+          <p>Hydration for real life.<br>Made for what's next.</p>
+        </div>
+        <nav>
+          <a href="#flavours">Flavours</a>
+          <a href="#about">Our Story</a>
+          <a href="#faq">FAQ</a>
+          <a href="#waitlist">Waitlist</a>
+        </nav>
+      </div>
+      <div class="copyright">© 2026 VOLLEY. · Concept website · Privacy and terms pages to be added before launch.</div>
+    </div>
+  </footer>
+
+  <dialog class="dialog" id="flavourDialog">
+    <button class="close" id="closeDialog" aria-label="Close flavour details">×</button>
+    <div class="dialog-inner">
+      <img id="dialogImage" src="assets/strawberry.jpg" alt="">
+      <div class="dialog-copy">
+        <div class="eyebrow">The flavour lineup</div>
+        <h3 id="dialogTitle"></h3>
+        <p id="dialogDescription"></p>
+        <a class="btn" href="#waitlist" id="dialogCTA">Join the Waitlist ↗</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const menu = document.getElementById('menu');
+    const links = document.getElementById('links');
+
+    menu.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+    });
+
+    links.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const flavours = [
+      ['Strawberry Açaí Lemonade', 'A bright, berry-forward lemonade with a juicy finish.', 'strawberry.jpg'],
+      ['Lychee Peach', 'A mellow, sunny blend of lychee and peach.', 'lychee.jpg'],
+      ['Citrus Lemon–Yuzu–Lime', 'A crisp citrus blend with a refreshing twist.', 'citrus.jpg'],
+      ['Mango Passionfruit', 'A vibrant tropical combination of mango and passionfruit.', 'mango.jpg']
+    ];
+
+    const dialog = document.getElementById('flavourDialog');
+
+    document.querySelectorAll('[data-flavour]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const flavour = flavours[Number(button.dataset.flavour)];
+        document.getElementById('dialogTitle').textContent = flavour[0];
+        document.getElementById('dialogDescription').textContent = flavour[1] + ' This flavour is currently a product concept.';
+        const image = document.getElementById('dialogImage');
+        image.src = 'assets/' + flavour[2];
+        image.alt = flavour[0] + ' concept packaging';
+        dialog.showModal();
+      });
+    });
+
+    document.getElementById('closeDialog').onclick = () => dialog.close();
+    document.getElementById('dialogCTA').onclick = () => dialog.close();
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    document.getElementById('signup').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.getElementById('feedback').textContent = 'Thanks for your interest! This preview is not connected to an email list yet, so your address has not been saved.';
+    });
+  </script>
+</body>
+</html>
